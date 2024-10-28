@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-pokemon-battle-component',
@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   styleUrl: './pokemon-battle-component.component.css'
 })
 export class PokemonBattleComponentComponent {
-  pokemon1: any = null;
-  pokemon2: any = null;
+  @Input() pokemon1: any;
+  @Input() pokemon2: any;
   health1: number = 100;
   health2: number = 100;
   battleOver: boolean = false;

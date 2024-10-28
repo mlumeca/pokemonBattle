@@ -1,3 +1,6 @@
+<app-choose-pokemon-component (onBattleReady)="onBattleReady($event)"></app-choose-pokemon-component>
+<app-pokemon-battle-component *ngIf="pokemon1 && pokemon2" [pokemon1]="pokemon1" [pokemon2]="pokemon2"></app-pokemon-battle-component>
+
 <div *ngIf="!battleOver">
     <app-pokemon-component [pokemon]="pokemon1" [health]="health1" (attack)="handleAttack(1)"></app-pokemon-component> 
     <div class="text-center">VS.</div>
@@ -6,3 +9,4 @@
   <div *ngIf="battleOver" class="text-center">
     <h2>{{ winner }}</h2>
   </div>
+
