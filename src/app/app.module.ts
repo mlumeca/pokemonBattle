@@ -10,13 +10,17 @@ import { provideHttpClient } from '@angular/common/http';
 import { ChoosePokemonComponentComponent } from './components/choose-pokemon-component/choose-pokemon-component.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MaterialModule } from './modules/material.module';
+import { NavComponent } from './shared/nav/nav.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokemonBattleComponentComponent,
     PokemonComponentComponent,
-    ChoosePokemonComponentComponent
+    ChoosePokemonComponentComponent,
+    NavComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

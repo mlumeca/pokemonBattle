@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PokemonResponse } from '../../models/pokemon-interface';
 import { PokemonService } from '../../services/pokemon.service';
@@ -8,24 +8,12 @@ import { PokemonService } from '../../services/pokemon.service';
   templateUrl: './pokemon-component.component.html',
   styleUrl: './pokemon-component.component.css'
 })
-export class PokemonComponentComponent implements OnInit {
+export class PokemonComponentComponent {
+  @Input() pokemon: any;
+  @Input() health: number = 100;
+  @Output() attack = new EventEmitter<void>();
 
-  pokemonId: string | null = '';
-  pokemon: PokemonResponse | undefined;
-
-  constructor(
-    private route: ActivatedRoute,
-    private pokemonService: PokemonService
-  ) { }
-  
-  ngOnInit(): void {
-    debugger;
-    this.pokemonId = this.route.snapshot.paramMap.get('id');
-    debugger;
-    
-    this.pokemonService.getPokemon().subscribe((response) => {
-      this.pokemon = response;
-    });
-    
+  onAttack() {
+    this.attack.emit();
   }
 }

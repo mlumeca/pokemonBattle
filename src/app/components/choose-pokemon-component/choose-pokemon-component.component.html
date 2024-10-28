@@ -1,30 +1,28 @@
-<div class="container-fluid mt-5 col-12">
-    <div class="row justify-content-around">
-        <div class="card d-flex justify-content-around" id="pokemon1" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+<div class="container-fluid mt-5">
+  <h4 class="m-3 text-center">Selecciona los pokemon que van a enfrentarse: </h4>
+    <div class="row justify-content-around align-items-center">
+        <div class="card m-5 col-5 justify-content-around text-center" style="width: 30rem; background-color: #BB3B36;">
+            <img src="https://i.imgur.com/iLCbIKm.png" class="card-img-top mx-auto img-fluid">
             <div class="card-body">
               <h5 class="card-title">Tu pokemon</h5>
-              <p class="card-text">Busca al primer pokemon según su nombre:</p>
               <mat-form-field>
-                <input matInput placeholder="Search">
+                <input #inputPokemon1 placeholder="Introduce el nombre de tu Pokémon" (input)="pokemon1 = inputPokemon1.value">
                </mat-form-field>
             </div>
           </div>
+
+          <div class="col-1 justify-content-around text-center">VS.</div>
         
-          <div class="card d-flex justify-content-around" id="pokemon2" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+          <div class="card m-5 col-5 justify-content-around text-center" style="width: 30rem; background-color: #BB3B36;">
+            <img src="https://i.imgur.com/s8QJkQv.png" class="card-img-top mx-auto img-fluid">
             <div class="card-body">
               <h5 class="card-title">Pokemon oponente</h5>
-              <p class="card-text">Busca al segundo pokemon según su nombre:</p>
               <mat-form-field>
-                <input matInput placeholder="Search">
+                <input #inputPokemon2 placeholder="Introduce el nombre del oponente" (input)="pokemon2 = inputPokemon2.value">
                </mat-form-field>
-               
-               <!-- <div *ngFor="let folder of folderObjs">
-                 <span>{{folder.folderName}}</span>
-                 <span>{{folder.folderSize}}</span>
-               </div> -->
             </div>
           </div>
+
+          <button (click)="validatePokemon()">Comenzar Batalla</button>
     </div>
 </div>

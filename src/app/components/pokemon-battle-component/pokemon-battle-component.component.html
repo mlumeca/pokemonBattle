@@ -1,4 +1,8 @@
-
-
-<!-- front pokemon img src - https://img.pokemondb.net/sprites/black-white/normal/nidorino.png -->
-<!-- back pokemon img src -  -->
+<div *ngIf="!battleOver">
+    <app-pokemon-component [pokemon]="pokemon1" [health]="health1" (attack)="handleAttack(1)"></app-pokemon-component> 
+    <div class="text-center">VS.</div>
+    <app-pokemon-component [pokemon]="pokemon2" [health]="health2" (attack)="handleAttack(2)"></app-pokemon-component> 
+  </div>
+  <div *ngIf="battleOver" class="text-center">
+    <h2>{{ winner }}</h2>
+  </div>
