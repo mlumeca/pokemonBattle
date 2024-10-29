@@ -4,31 +4,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { PokemonBattleComponentComponent } from './components/pokemon-battle-component/pokemon-battle-component.component';
-import { PokemonComponentComponent } from './components/pokemon-component/pokemon-component.component';
+import { BattleComponent } from './pages/battle/battle.component';
+import { PokemonComponent } from './components/pokemon/pokemon.component';
 import { provideHttpClient } from '@angular/common/http';
-import { ChoosePokemonComponentComponent } from './components/choose-pokemon-component/choose-pokemon-component.component';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { MaterialModule } from './modules/material.module';
-import { NavComponent } from './shared/nav/nav.component';
-import { FooterComponent } from './shared/footer/footer.component';
+import { LottieComponent, provideLottieOptions } from 'ngx-lottie';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PokemonBattleComponentComponent,
-    PokemonComponentComponent,
-    ChoosePokemonComponentComponent,
-    NavComponent,
-    FooterComponent
+  declarations: [AppComponent, BattleComponent, PokemonComponent],
+  imports: [BrowserModule, AppRoutingModule, NgbModule, LottieComponent],
+  providers: [
+    provideHttpClient(),
+    provideLottieOptions({
+      player: () => import('lottie-web'),
+    }),
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgbModule,
-    MaterialModule
-  ],
-  providers: [provideHttpClient(), provideAnimationsAsync()],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
